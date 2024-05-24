@@ -1,4 +1,6 @@
 const Fornecedor = require('../models/modeloFornecedor');
+
+// funcao para criar um fornecedor
 exports.criarFornecedor = async (req, res) => {
   try {
     const novoFornecedor = await Fornecedor.create(req.body);
@@ -8,6 +10,7 @@ exports.criarFornecedor = async (req, res) => {
   }
 };
 
+// funcao para obter um fornecedor
 exports.obterFornecedor = async (req, res) => {
   try {
     const fornecedor = await Fornecedor.findByPk(req.params.fornecedorID);
@@ -18,7 +21,7 @@ exports.obterFornecedor = async (req, res) => {
   }
 };
 
-
+// funcao para obter todos os fornecedores
 exports.obterFornecedores = async (req, res) => {
   try {
     const fornecedores = await Fornecedor.findAll();
@@ -28,6 +31,7 @@ exports.obterFornecedores = async (req, res) => {
   }
 };
 
+// funcao para deletar um fornecedor
 exports.apagarFornecedor = async (req, res) => {
   try {
     const { fornecedorID } = req.params;
@@ -49,6 +53,7 @@ exports.apagarFornecedor = async (req, res) => {
   }
 };
 
+// funcao para editar um fornecedor
 exports.editarFornecedor = async (req, res) => {
     try {
       const { fornecedorID } = req.params;
@@ -57,7 +62,7 @@ exports.editarFornecedor = async (req, res) => {
       const fornecedor = await Fornecedor.findByPk(fornecedorID);
 
       if (!fornecedor) throw new Error("Fornecedor não encontrado");
-
+      // o operador logico || esta sendo utilizado para quando um item for editado mantenha os outros valores dos outros campos salvos, caso contrario os outro seriam retornados como null
       fornecedor.update({
         razao_social: razao_social || fornecedor.razao_social,
         cnpj: cnpj || fornecedor.cnpj,

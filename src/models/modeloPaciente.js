@@ -30,6 +30,6 @@ const Paciente = sequelize.define('Paciente', {
 });
 
 Paciente.hasMany(Consulta) // Paciente tem muitas consultas
-Consulta.belongsTo(Paciente) // 
+Consulta.belongsTo(Paciente) // Muitas consultas pertence a um paciente
 
 module.exports = Paciente;

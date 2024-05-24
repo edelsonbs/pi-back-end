@@ -4,7 +4,7 @@ const sequelize = require('../config/dbConfig');
 const Consulta = sequelize.define('Consulta', {
     procedimento: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
 
 });
