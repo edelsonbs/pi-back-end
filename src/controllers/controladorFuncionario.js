@@ -1,5 +1,6 @@
 const Funcionario = require('../models/modeloFuncionario');
 
+//funcao para criar um funcionario
 exports.criarFuncionario = async (req, res) => {
   try {
     const novoFuncionario = await Funcionario.create(req.body);
@@ -9,6 +10,7 @@ exports.criarFuncionario = async (req, res) => {
   }
 };
 
+//funcao para obter todos os funcionarios
 exports.obterFuncionarios = async (req, res) => {
   try {
     const funcionario = await Funcionario.findAll();
@@ -19,7 +21,7 @@ exports.obterFuncionarios = async (req, res) => {
   
 };
 
-
+//funcao para obter um funcionario
 exports.obterFuncionario = async (req, res) => {
     try {
       const funcionario = await Funcionario.findByPk(req.params.funcionarioID); // req.params.pacienteID
@@ -30,6 +32,7 @@ exports.obterFuncionario = async (req, res) => {
     
   };
 
+  //funcao para deletar um funcionario
   exports.apagarFuncionario = async (req, res) => {
     try {
       const { funcionarioID } = req.params;
@@ -51,6 +54,7 @@ exports.obterFuncionario = async (req, res) => {
     }
   };
   
+   //funcao para editar um funcionario
   exports.editarFuncionario = async (req, res) => {
       try {
         const { funcionarioID } = req.params;
@@ -59,7 +63,7 @@ exports.obterFuncionario = async (req, res) => {
         const funcionario = await Funcionario.findByPk(funcionarioID);
   
         if (!funcionario) throw new Error("Funcionario não encontrado");
-  
+      // o operador logico || esta sendo utilizado para quando um item for editado mantenha os outros valores dos outros campos salvos, caso contrario os outro seriam retornados como null
         funcionario.update({
           nome: nome || funcionario.nome,
           telefone: telefone || funcionario.telefone,

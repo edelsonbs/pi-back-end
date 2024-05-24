@@ -16,7 +16,7 @@ rg: {
 },
 cro: {
     type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
 },
   razao_social: {
     type: DataTypes.STRING,

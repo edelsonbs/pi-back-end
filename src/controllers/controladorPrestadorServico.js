@@ -1,4 +1,6 @@
 const PrestadorServico = require('../models/modelPrestadorServico');
+
+//funcao para criar Prestador de Servico
 exports.criarPrestadorServico = async (req, res) => {
   try {
     const novoPrestadorServico = await PrestadorServico.create(req.body);
@@ -8,6 +10,7 @@ exports.criarPrestadorServico = async (req, res) => {
   }
 };
 
+//funcao para obter um Prestador de Servico
 exports.obterPrestadorServico = async (req, res) => {
   try {
     const prestadorServico = await PrestadorServico.findByPk(req.params.prestadorServicoID);
@@ -18,7 +21,7 @@ exports.obterPrestadorServico = async (req, res) => {
   }
 };
 
-
+//funcao para obter todos os Prestadores de Servico
 exports.obterPrestadoresServico = async (req, res) => {
   try {
     const prestadoresServico = await PrestadorServico.findAll();
@@ -28,6 +31,7 @@ exports.obterPrestadoresServico = async (req, res) => {
   }
 };
 
+//funcao para deletar um Prestador de Servico
 exports.apagarPrestadorServico = async (req, res) => {
   try {
     const { prestadorServicoID } = req.params;
@@ -49,6 +53,7 @@ exports.apagarPrestadorServico = async (req, res) => {
   }
 };
 
+//funcao para editar um Prestador de Servico
 exports.editarPrestadorServico = async (req, res) => {
     try {
       const { prestadorServicoID } = req.params;
@@ -58,6 +63,7 @@ exports.editarPrestadorServico = async (req, res) => {
 
       if (!prestadorServico) throw new Error("Prestador de servico não encontrado");
 
+      // o operador logico || esta sendo utilizado para quando um item for editado mantenha os outros valores dos outros campos salvos, caso contrario os outro seriam retornados como null
       prestadorServico.update({
         nome: nome || prestadorServico.nome,
         cpf: cpf || prestadorServico.cpf,

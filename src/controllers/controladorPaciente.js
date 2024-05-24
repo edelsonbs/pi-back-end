@@ -1,5 +1,6 @@
 const Paciente = require("../models/modeloPaciente");
 
+// funcao para criar um paciente
 exports.criarPaciente = async (req, res) => {
   try {
     const novoPaciente = await Paciente.create(req.body);
@@ -9,15 +10,18 @@ exports.criarPaciente = async (req, res) => {
   }
 };
 
+// funcao para obter todos os pacientes
 exports.obterPacientes = async (req, res) => {
   try {
-    const pacientes = await Paciente.findAll();
+    const pacientes = await Paciente.findAll({include: [{ attributes: ['procedimento'], model: Consulta }]});
     res.json(pacientes);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
+
+// funcao para obter um paciente
 exports.obterPaciente = async (req, res) => {
   try {
     const paciente = await Paciente.findByPk(req.params.pacienteID); // req.params.pacienteID
@@ -27,6 +31,7 @@ exports.obterPaciente = async (req, res) => {
   }
 };
 
+// funcao para deletar um paciente
 exports.apagarPaciente = async (req, res) => {
   try {
     const { pacienteID } = req.params;
@@ -48,6 +53,8 @@ exports.apagarPaciente = async (req, res) => {
   }
 };
 
+
+// funcao para editar um paciente
 exports.editarPaciente = async (req, res) => {
     try {
       const { pacienteID } = req.params;
@@ -56,7 +63,7 @@ exports.editarPaciente = async (req, res) => {
       const paciente = await Paciente.findByPk(pacienteID);
 
       if (!paciente) throw new Error("Paciente não encontrado");
-
+      // o operador logico || esta sendo utilizado para quando um item for editado mantenha os outros valores dos outros campos salvos, caso contrario os outro seriam retornados como null
       paciente.update({
         nome: nome || paciente.nome,
         telefone: telefone || paciente.telefone,
