@@ -4,35 +4,35 @@ const sequelize = require('../config/dbConfig');
 const PrestadorServico = sequelize.define('PrestadorServico', {
 nome: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
 },
 cpf: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
 },
 rg: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
 },
 cro: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
 },
   razao_social: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   cnpj: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   telefone: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   endereco: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 });
 

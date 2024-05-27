@@ -13,7 +13,7 @@ exports.criarPaciente = async (req, res) => {
 // funcao para obter todos os pacientes
 exports.obterPacientes = async (req, res) => {
   try {
-    const pacientes = await Paciente.findAll({include: [{ attributes: ['procedimento'], model: Consulta }]});
+    const pacientes = await Paciente.findAll();
     res.json(pacientes);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -24,7 +24,7 @@ exports.obterPacientes = async (req, res) => {
 // funcao para obter um paciente
 exports.obterPaciente = async (req, res) => {
   try {
-    const paciente = await Paciente.findByPk(req.params.pacienteID); // req.params.pacienteID
+    const paciente = await Paciente.findByPk(req.params.pacienteID);
     res.json(paciente);
   } catch (error) {
     res.status(500).json({ error: error.message });
