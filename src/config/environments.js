@@ -13,7 +13,7 @@ const environments = {
       // outras opções de configuração, se necessário
       //
     },
-    PORTA: process.env.PORT || 3000,
+    PORTA: process.env.PORT || 3001,
   };
   
   module.exports = environments;

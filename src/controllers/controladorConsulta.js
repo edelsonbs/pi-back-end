@@ -68,7 +68,7 @@ exports.criarConsulta = async (req, res) => {
   exports.editarConsulta = async (req, res) => {
       try {
         const { consultaID } = req.params;
-        const { procedimento, data, hora, croID, cpfID } = req.body
+        const { procedimento, data, hora, PrestadorServicoId, PacienteId } = req.body
         if (!consultaID) throw new Error("Campos obrigatorios não foram preenchidos");
         const consulta = await Consulta.findByPk(consultaID);
   
@@ -78,8 +78,8 @@ exports.criarConsulta = async (req, res) => {
           procedimento: procedimento || consulta.procedimento,
           data: data || consulta.data,
           hora: hora || consulta.hora,
-          croID: croID || consulta.croID,
-          cpfID: cpfID || consulta.cpfID
+          PrestadorServicoId: PrestadorServicoId || consulta.PrestadorServicoId,
+          PacienteId: PacienteId || consulta.PacienteId
         });
   
         res.status(201).json(consulta);
