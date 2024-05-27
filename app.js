@@ -2,6 +2,13 @@ const express = require("express");
 const app = express();
 const environments = require("./src/config/environments");
 const rotas = require("./src/routes/rotas");
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(express.json());
 
