@@ -4,19 +4,19 @@ const sequelize = require('../config/dbConfig');
 const Fornecedor = sequelize.define('Fornecedor', {
   razao_social: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   cnpj: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   telefone: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   endereco: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
 });
 
