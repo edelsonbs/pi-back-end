@@ -23,7 +23,7 @@ exports.criarConsulta = async (req, res) => {
   exports.obterConsultas = async (req, res) => {
     try {
       const consultas = await Consulta.findAll( { include:
-        [{ model: Paciente, attributes: ['id', 'nome']},
+        [{ model: Paciente, attributes: ['id', 'nome', 'telefone']},
      { model: PrestadorServico, attributes:['nome', 'cro']}]});
       res.json(consultas);
     } catch (error) {
@@ -34,7 +34,7 @@ exports.criarConsulta = async (req, res) => {
   //funcao para obter uma consulta
   exports.obterConsulta = async (req, res) => {
     try {
-      const consulta = await Consulta.findByPk(req.params.consultaID, { include: [{ model: Paciente, attributes: ['id', 'nome']}, { model: PrestadorServico, attributes: ['id', 'nome', 'cro'], }]}); 
+      const consulta = await Consulta.findByPk(req.params.consultaID, { include: [{ model: Paciente, attributes: ['id', 'nome', 'telefone']}, { model: PrestadorServico, attributes: ['id', 'nome', 'cro'], }]}); 
       res.json(consulta);
     } catch (error) {
       res.status(500).json({ error: error.message });
