@@ -5,27 +5,27 @@ const Consulta = require('../models/modeloConsulta');
 const Paciente = sequelize.define('Paciente', {
     nome: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     telefone: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     cpf: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     endereco: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     rg: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     ficha_anamnese: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
 });
 

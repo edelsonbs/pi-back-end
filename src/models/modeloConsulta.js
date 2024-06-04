@@ -5,15 +5,15 @@ const PrestadorServico = require('../models/modelPrestadorServico');
 const Consulta = sequelize.define('Consulta', {
     data: {
         type: DataTypes.DATEONLY,
-        allowNull: true,
+        allowNull: false,
     },
     hora: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
     procedimento: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
 
 });
