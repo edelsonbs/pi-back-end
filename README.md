@@ -9,7 +9,7 @@ Repositório criado para armazenar os códigos do Projeto Integrador do curso Pr
         * delete - (/paciente/:pacienteID) ex: http:localhost:3000/api/paciente/1
 
     - http:localhost:3000/api/consulta
-        * post - (/consulta) (cpfID, procedimento) todos obrigatorios
+        * post - (/consulta) (cpfID, croID, data, hora, procedimento ) todos obrigatorios
         * get - (/consulta)
         * get - (/consulta/:consultaID) ex: http:localhost:3000/api/consulta/1
         * put - (/consulta/:consultaID) ex: http:localhost:3000/api/consulta/1

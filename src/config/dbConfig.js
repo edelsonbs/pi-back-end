@@ -9,6 +9,7 @@ const sequelize = new Sequelize({
   storage: configEnv.DB_STORAGE,
   logging: configEnv.DB_LOGGING,
   host: configEnv.DB_HOST,
+  port: configEnv.DB_PORT,
   username: configEnv.DB_USERNAME,
   password: configEnv.DB_PASSWORD,
   database: configEnv.DB_NAME

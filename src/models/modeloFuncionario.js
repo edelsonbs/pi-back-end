@@ -5,23 +5,23 @@ const sequelize = require('../config/dbConfig');
 const Funcionario = sequelize.define('Funcionario', {
     nome: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     telefone: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     cpf: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     endereco: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     rg: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
 });
 
